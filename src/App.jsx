@@ -119,48 +119,87 @@ const PL={
 'tata-1mg':{n:'Tata 1mg',i:'💊'},'pharmeasy':{n:'PharmEasy',i:'💉'},'netmeds':{n:'Netmeds',i:'🩺'},'apollo-247':{n:'Apollo 247',i:'🏥'},'medbuddy':{n:'MediBuddy',i:'🩻'},'amazon-pharmacy':{n:'Amazon Pharmacy',i:'📦'},'flipkart-health':{n:'Flipkart Health+',i:'🛍️'},'truemeds':{n:'Truemeds',i:'💊'},'cultfit':{n:'Cult.fit',i:'🏋️'},'practo':{n:'Practo',i:'👨‍⚕️'}
 };
 const AC=[
-{id:'onecard',nm:'OneCard',bk:'Federal Bank',fe:0,ic:'💳',nw:'visa',gr:['#667eea','#764ba2'],r:{'default':0.05},u:'https://www.getonecard.app/'},
-{id:'axis-neo',nm:'Neo',bk:'Axis Bank',fe:0,ic:'🆕',nw:'visa',gr:['#f093fb','#f5576c'],r:{'default':0.01},u:'https://www.axisbank.com/retail/cards/credit-card/axis-bank-neo-credit-card'},
-{id:'icici-amazon',nm:'Amazon Pay',bk:'ICICI Bank',fe:0,ic:'📦',nw:'visa',gr:['#4facfe','#00f2fe'],r:{'amazon':0.05,'amazon-fresh':0.05,'amazon-prime':0.05,'amazon-pharmacy':0.05,'amazon-pay-bills':0.02,'swiggy':0.02,'zomato':0.02,'swiggy-instamart':0.02,'bookmyshow':0.02,'blinkit':0.02,'default':0.01},u:'https://www.icicibank.com/card/credit-cards/amazon-pay-credit-card'},
-{id:'hdfc-swiggy',nm:'Swiggy',bk:'HDFC Bank',fe:500,ic:'🍔',nw:'visa',gr:['#fa709a','#fee140'],r:{'swiggy':0.10,'swiggy-instamart':0.10,'zomato':0.05,'eatsure':0.05,'faasos':0.05,'default':0.01},wv:'₹2L spend',u:'https://www.hdfcbank.com/personal/pay/cards/credit-cards/swiggy-hdfc-bank-credit-card'},
-{id:'hdfc-tata',nm:'Tata Neu+',bk:'HDFC Bank',fe:0,ic:'🛒',nw:'rupay',gr:['#30cfd0','#330867'],r:{'bigbasket':0.05,'bb-now':0.05,'croma':0.05,'tatacliq':0.05,'tatacliq-tech':0.05,'natures-basket':0.05,'tata-1mg':0.05,'default':0.015},u:'https://www.hdfcbank.com/personal/pay/cards/credit-cards/tata-neu-plus-hdfc-bank-credit-card'},
-{id:'hdfc-millennia',nm:'Millennia',bk:'HDFC Bank',fe:0,ic:'💎',nw:'visa',gr:['#a8edea','#fed6e3'],r:{'smartbuy':0.05,'smartbuy-flights':0.05,'smartbuy-hotels':0.05,'amazon':0.025,'flipkart':0.025,'myntra':0.025,'swiggy':0.025,'zomato':0.025,'bookmyshow':0.025,'tatacliq':0.025,'default':0.01},u:'https://www.hdfcbank.com/personal/pay/cards/credit-cards/millennia-credit-card'},
-{id:'hdfc-infinia',nm:'Infinia',bk:'HDFC Bank',fe:12500,ic:'👑',nw:'visa',gr:['#ffd89b','#19547b'],r:{'smartbuy':0.165,'smartbuy-flights':0.165,'smartbuy-hotels':0.165,'default':0.033},wv:'₹10L spend',u:'https://www.hdfcbank.com/personal/pay/cards/credit-cards/infinia-credit-card'},
-{id:'axis-magnus',nm:'Magnus',bk:'Axis Bank',fe:12500,ic:'🔥',nw:'visa',gr:['#ff6b6b','#4ecdc4'],r:{'makemytrip':0.12,'goibibo':0.12,'cleartrip':0.04,'yatra':0.04,'default':0.024},u:'https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-credit-card'},
-{id:'sbi-cashback',nm:'Cashback',bk:'SBI Card',fe:999,ic:'💰',nw:'visa',gr:['#f7971e','#ffd200'],r:{'default':0.05},wv:'₹2L spend',caps:[{platforms:['default'],cap:'₹5000/quarter',note:'5% cashback capped at ₹5,000 per quarter (₹1,667/month)'}],u:'https://www.sbicard.com/en/personal/credit-cards/cashback/sbi-card-cashback.page'},
-{id:'axis-flipkart',nm:'Flipkart',bk:'Axis Bank',fe:0,ic:'🛍️',nw:'visa',gr:['#2193b0','#6dd5ed'],r:{'flipkart':0.05,'flipkart-supermart':0.05,'myntra':0.04,'shopsy':0.04,'cleartrip':0.04,'swiggy':0.04,'zomato':0.04,'default':0.015},u:'https://www.axisbank.com/retail/cards/credit-card/flipkart-axis-bank-credit-card'},
-{id:'icici-sapphiro',nm:'Sapphiro',bk:'ICICI Bank',fe:3500,ic:'💎',nw:'visa',gr:['#ee0979','#ff6a00'],r:{'cleartrip':0.04,'makemytrip':0.03,'default':0.02},wv:'₹5L spend',u:'https://www.icicibank.com/card/credit-cards/icici-bank-sapphiro-credit-card'},
-{id:'au-lit',nm:'LIT',bk:'AU Bank',fe:0,ic:'🎨',nw:'visa',gr:['#a18cd1','#fbc2eb'],r:{'swiggy':0.05,'zomato':0.05,'amazon':0.05,'flipkart':0.05,'blinkit':0.05,'zepto':0.03,'default':0.015},u:'https://www.aubank.in/credit-card/lit-credit-card'},
-{id:'bpcl-sbi',nm:'BPCL Octane',bk:'SBI Card',fe:1499,ic:'⛽',nw:'visa',gr:['#e65100','#ffd600'],r:{'bpcl':0.0725,'swiggy':0.02,'zomato':0.02,'default':0.005},wv:'₹2L spend',fl:{pump:'bpcl',sw:1,swCap:100,swMin:400,swMax:4000,pts:'13X pts/₹100',tip:'Swipe only at BPCL pumps. Reward points redeemable at 1200+ BPCL outlets.'},u:'https://www.sbicard.com/en/personal/credit-cards/travel/bpcl-sbi-card.page'},
-{id:'iocl-axis',nm:'IndianOil',bk:'Axis Bank',fe:500,ic:'⛽',nw:'visa',gr:['#1565c0','#42a5f5'],r:{'indian-oil':0.04,'default':0.005},wv:'₹50K spend',fl:{pump:'indian-oil',sw:1,swCap:200,swMin:400,swMax:4000,pts:'4% as EDGE rewards',tip:'Use at IOCL stations only. Rewards redeemable for fuel via IndianOil XTRAREWARDS.'},u:'https://www.axisbank.com/retail/cards/credit-card/indian-oil-axis-bank-credit-card'},
-{id:'icici-hpcl',nm:'HPCL Coral',bk:'ICICI Bank',fe:199,ic:'⛽',nw:'visa',gr:['#2e7d32','#81c784'],r:{'hp-petrol':0.04,'default':0.005},wv:'₹1.5L spend',fl:{pump:'hp-petrol',sw:1,swCap:200,swMin:400,swMax:4000,pts:'4% cashback on HPCL',tip:'Use at HPCL pumps. Also get 25% off BookMyShow (2x/month).'},u:'https://www.icicibank.com/card/credit-cards/hpcl-icici-bank-coral-credit-card'},
-{id:'iocl-rbl',nm:'IOCL Xtra',bk:'RBL Bank',fe:500,ic:'⛽',nw:'mc',gr:['#d84315','#ff8a65'],r:{'indian-oil':0.075,'default':0.005},wv:'₹50K spend',fl:{pump:'indian-oil',sw:1,swCap:150,swMin:500,swMax:4000,pts:'7.5% as Fuel Points',tip:'Best IOCL card. Must swipe on IOCL-branded machines only (Touch terminals with IOCL logo).'},u:'https://www.rblbank.com/credit-cards/iocl-rbl-bank-xtra-credit-card'},
-{id:'jiobp-indusind',nm:'Jio-bp Mobility+',bk:'IndusInd Bank',fe:0,ic:'⛽',nw:'visa',gr:['#00695c','#26a69a'],r:{'jio-bp':0.04,'nayara':0.01,'shell':0.01,'default':0.005},fl:{pump:'jio-bp',sw:1,swCap:100,swMin:400,swMax:4000,pts:'12 Smiles/₹100 (4%)',tip:'Zero annual fee. Earn Smiles redeemable at Jio-bp pumps. Also earn 200 bonus Smiles on ₹4K+/month Jio-bp spends.'},u:'https://www.indusind.com/in/en/personal/cards/credit-card/jio-bp-mobility-plus-credit-card.html'},
-// ═══════════ ENTRY-LEVEL / BASIC CARDS (millions hold these) ═══════════
-{id:'hdfc-moneyback',nm:'MoneyBack+',bk:'HDFC Bank',fe:500,ic:'💵',nw:'visa',gr:['#56ab2f','#a8e063'],r:{'amazon':0.033,'flipkart':0.033,'swiggy':0.033,'bigbasket':0.033,'bb-now':0.033,'default':0.0033},wv:'₹50K spend',caps:[{platforms:['amazon','flipkart','swiggy','bigbasket'],cap:'₹1000/month',note:'10X CashPoints on partners capped at 1000 CashPoints/month'}],u:'https://www.hdfcbank.com/personal/pay/cards/credit-cards/moneyback-plus-credit-card'},
-{id:'hdfc-freedom',nm:'Freedom',bk:'HDFC Bank',fe:500,ic:'🆓',nw:'visa',gr:['#36d1dc','#5b86e5'],r:{'swiggy':0.025,'zomato':0.025,'bigbasket':0.025,'default':0.0027},wv:'₹50K spend',u:'https://www.hdfcbank.com/personal/pay/cards/credit-cards/freedom-credit-card'},
-{id:'sbi-simplysave',nm:'SimplySAVE',bk:'SBI Card',fe:499,ic:'🏪',nw:'visa',gr:['#c94b4b','#4b134f'],r:{'swiggy':0.025,'zomato':0.025,'bookmyshow':0.025,'bigbasket':0.025,'default':0.0025},wv:'₹1L spend',u:'https://www.sbicard.com/en/personal/credit-cards/rewards/sbi-card-simplysave.page'},
-{id:'sbi-simplyclick',nm:'SimplyCLICK',bk:'SBI Card',fe:499,ic:'🖱️',nw:'visa',gr:['#f857a6','#ff5858'],r:{'amazon':0.025,'bookmyshow':0.025,'cleartrip':0.025,'lenskart':0.025,'netmeds':0.025,'amazon-pharmacy':0.0125,'default':0.0125},wv:'₹1L spend',u:'https://www.sbicard.com/en/personal/credit-cards/shopping/sbi-card-simplyclick.page'},
-{id:'icici-platinum',nm:'Platinum',bk:'ICICI Bank',fe:0,ic:'🔘',nw:'visa',gr:['#bdc3c7','#2c3e50'],r:{'bookmyshow':0.015,'swiggy':0.005,'zomato':0.005,'default':0.005},u:'https://www.icicibank.com/card/credit-cards/icici-bank-platinum-chip-credit-card'},
-{id:'icici-coral',nm:'Coral',bk:'ICICI Bank',fe:500,ic:'🪸',nw:'visa',gr:['#ff6b6b','#ee5a24'],r:{'bookmyshow':0.025,'swiggy':0.01,'zomato':0.01,'cleartrip':0.01,'default':0.005},wv:'₹1.5L spend',u:'https://www.icicibank.com/card/credit-cards/icici-bank-coral-credit-card'},
-{id:'axis-myzone',nm:'MyZone',bk:'Axis Bank',fe:500,ic:'🎬',nw:'visa',gr:['#ED4264','#FFEDBC'],r:{'bookmyshow':0.05,'pvr-inox':0.05,'swiggy':0.02,'zomato':0.02,'default':0.005},wv:'₹50K spend',u:'https://www.axisbank.com/retail/cards/credit-card/my-zone-credit-card'},
-{id:'axis-ace',nm:'Ace',bk:'Axis Bank',fe:499,ic:'🃏',nw:'visa',gr:['#11998e','#38ef7d'],r:{'google-pay':0.05,'phonepe':0.02,'paytm':0.02,'cred':0.02,'bbps':0.02,'freecharge':0.02,'mobikwik':0.02,'amazon-pay-bills':0.02,'swiggy':0.04,'zomato':0.04,'default':0.015},wv:'₹2L spend',caps:[{platforms:['google-pay'],cap:'₹500/month',note:'5% on utility bills via Google Pay capped at ₹500 cashback/month'},{platforms:['swiggy','zomato'],cap:'₹500/month',note:'4% on Swiggy/Zomato capped at ₹500/month'}],u:'https://www.axisbank.com/retail/cards/credit-card/ace-credit-card'},
-{id:'kotak-811',nm:'811',bk:'Kotak Mahindra',fe:0,ic:'📱',nw:'visa',gr:['#e52d27','#b31217'],r:{'amazon':0.02,'flipkart':0.02,'myntra':0.02,'default':0.01},u:'https://www.kotak.com/en/personal-banking/cards/credit-cards/811-credit-card.html'},
-{id:'idfc-classic',nm:'FIRST Classic',bk:'IDFC First',fe:0,ic:'🎯',nw:'visa',gr:['#0052D4','#4364F7'],r:{'amazon':0.0075,'flipkart':0.0075,'swiggy':0.0075,'zomato':0.0075,'default':0.0025},u:'https://www.idfcfirstbank.com/credit-card/first-classic'},
-// ═══════════ MID-TIER / PREMIUM CARDS ═══════════
-{id:'hdfc-regalia',nm:'Regalia',bk:'HDFC Bank',fe:2500,ic:'✨',nw:'visa',gr:['#8E2DE2','#4A00E0'],r:{'smartbuy':0.10,'smartbuy-flights':0.10,'smartbuy-hotels':0.10,'makemytrip':0.013,'cleartrip':0.013,'default':0.013},wv:'₹3L spend',u:'https://www.hdfcbank.com/personal/pay/cards/credit-cards/regalia-credit-card'},
-{id:'hdfc-regalia-gold',nm:'Regalia Gold',bk:'HDFC Bank',fe:2999,ic:'🌟',nw:'visa',gr:['#F09819','#EDDE5D'],r:{'smartbuy':0.10,'smartbuy-flights':0.10,'smartbuy-hotels':0.10,'myntra':0.033,'nykaa':0.033,'reliance-digital':0.033,'croma':0.033,'default':0.013},wv:'₹4L spend',u:'https://www.hdfcbank.com/personal/pay/cards/credit-cards/regalia-gold-credit-card'},
-{id:'hdfc-diners-black',nm:'Diners Black',bk:'HDFC Bank',fe:10000,ic:'♠️',nw:'diners',gr:['#232526','#414345'],r:{'smartbuy':0.165,'smartbuy-flights':0.165,'smartbuy-hotels':0.165,'default':0.0167},wv:'₹5L spend',u:'https://www.hdfcbank.com/personal/pay/cards/credit-cards/diners-club-black'},
-{id:'sbi-prime',nm:'Prime',bk:'SBI Card',fe:2999,ic:'💼',nw:'visa',gr:['#1a2980','#26d0ce'],r:{'swiggy':0.0375,'zomato':0.0375,'bigbasket':0.0375,'default':0.0125},wv:'₹3L spend',u:'https://www.sbicard.com/en/personal/credit-cards/rewards/sbi-card-prime.page'},
-{id:'sbi-elite',nm:'Elite',bk:'SBI Card',fe:4999,ic:'🏆',nw:'visa',gr:['#141E30','#243B55'],r:{'swiggy':0.025,'zomato':0.025,'bigbasket':0.025,'bookmyshow':0.025,'cleartrip':0.025,'default':0.005},wv:'₹5L spend',u:'https://www.sbicard.com/en/personal/credit-cards/travel-and-shopping/sbi-card-elite.page'},
-{id:'sbi-flipkart',nm:'Flipkart SBI',bk:'SBI Card',fe:500,ic:'🛒',nw:'visa',gr:['#2196F3','#F44336'],r:{'flipkart':0.05,'myntra':0.075,'swiggy':0.04,'zomato':0.04,'cultfit':0.04,'flipkart-health':0.05,'default':0.01},wv:'₹3.5L spend',u:'https://www.sbicard.com/en/personal/credit-cards/shopping/flipkart-sbi-card.page'},
-{id:'icici-rubyx',nm:'Rubyx',bk:'ICICI Bank',fe:3000,ic:'💠',nw:'visa',gr:['#c0392b','#e74c3c'],r:{'bookmyshow':0.025,'cleartrip':0.015,'makemytrip':0.015,'default':0.0075},wv:'₹3L spend',u:'https://www.icicibank.com/card/credit-cards/icici-bank-rubyx-credit-card'},
-{id:'axis-atlas',nm:'Atlas',bk:'Axis Bank',fe:5000,ic:'🗺️',nw:'visa',gr:['#1B1464','#6a3093'],r:{'makemytrip':0.05,'cleartrip':0.05,'goibibo':0.05,'yatra':0.05,'default':0.02},wv:'₹4L spend',u:'https://www.axisbank.com/retail/cards/credit-card/atlas-credit-card'},
-{id:'kotak-league',nm:'League Platinum',bk:'Kotak Mahindra',fe:500,ic:'🏅',nw:'visa',gr:['#d31027','#ea384d'],r:{'pvr-inox':0.04,'bookmyshow':0.04,'swiggy':0.015,'default':0.013},wv:'₹1L spend',u:'https://www.kotak.com/en/personal-banking/cards/credit-cards/league-platinum-credit-card.html'},
-{id:'idfc-select',nm:'FIRST Select',bk:'IDFC First',fe:999,ic:'⭐',nw:'visa',gr:['#00B4DB','#0083B0'],r:{'cleartrip':0.025,'makemytrip':0.025,'swiggy':0.025,'zomato':0.025,'default':0.0075},wv:'₹2L spend',u:'https://www.idfcfirstbank.com/credit-card/first-select'},
-{id:'amex-mrcc',nm:'MRCC',bk:'Amex',fe:4500,ic:'🅰️',nw:'amex',gr:['#003087','#00175a'],r:{'amazon':0.02,'flipkart':0.02,'swiggy':0.02,'default':0.02},wv:'₹1.5L spend',u:'https://www.americanexpress.com/in/credit-cards/membership-rewards-credit-card/'},
-{id:'hsbc-cashback',nm:'Cashback',bk:'HSBC',fe:750,ic:'🏦',nw:'visa',gr:['#DB0011','#3d0000'],r:{'default':0.015},wv:'₹1L spend',u:'https://www.hsbc.co.in/credit-cards/products/cashback/'},
-{id:'sc-smart',nm:'Smart',bk:'Standard Chartered',fe:0,ic:'🔷',nw:'visa',gr:['#0072AA','#004E7C'],r:{'swiggy':0.05,'zomato':0.05,'bigbasket':0.05,'tata-1mg':0.05,'pharmeasy':0.03,'default':0.01},u:'https://www.sc.com/in/credit-cards/smart/'},
+// rt: 'cb' = true cashback, 'co' = co-branded (real on that platform), 'rp' = reward points (est. value)
+// For 'rp' cards: rates shown are CONSERVATIVE (catalog/statement credit value), not best-case
+
+// ═══════════ TRUE CASHBACK CARDS ═══════════
+{id:'onecard',nm:'OneCard',bk:'Federal Bank',fe:0,ic:'💳',nw:'visa',rt:'cb',gr:['#667eea','#764ba2'],r:{'default':0.05},u:'https://www.getonecard.app/'},
+{id:'sbi-cashback',nm:'Cashback',bk:'SBI Card',fe:999,ic:'💰',nw:'visa',rt:'cb',gr:['#f7971e','#ffd200'],r:{'default':0.05},wv:'₹2L spend',caps:[{platforms:['default'],cap:'₹5000/quarter',note:'5% cashback capped at ₹5,000 per quarter'}],u:'https://www.sbicard.com/en/personal/credit-cards/cashback/sbi-card-cashback.page'},
+{id:'axis-ace',nm:'Ace',bk:'Axis Bank',fe:499,ic:'🃏',nw:'visa',rt:'cb',gr:['#11998e','#38ef7d'],r:{'google-pay':0.05,'phonepe':0.02,'paytm':0.02,'cred':0.02,'bbps':0.02,'freecharge':0.02,'mobikwik':0.02,'amazon-pay-bills':0.02,'swiggy':0.04,'zomato':0.04,'default':0.015},wv:'₹2L spend',caps:[{platforms:['google-pay'],cap:'₹500/month',note:'5% on utility bills via Google Pay capped at ₹500/month'},{platforms:['swiggy','zomato'],cap:'₹500/month',note:'4% on Swiggy/Zomato capped at ₹500/month'}],u:'https://www.axisbank.com/retail/cards/credit-card/ace-credit-card'},
+{id:'hsbc-cashback',nm:'Cashback',bk:'HSBC',fe:750,ic:'🏦',nw:'visa',rt:'cb',gr:['#DB0011','#3d0000'],r:{'default':0.015},wv:'₹1L spend',u:'https://www.hsbc.co.in/credit-cards/products/cashback/'},
+{id:'axis-neo',nm:'Neo',bk:'Axis Bank',fe:0,ic:'🆕',nw:'visa',rt:'cb',gr:['#f093fb','#f5576c'],r:{'swiggy':0.05,'zomato':0.05,'bigbasket':0.05,'default':0.01},u:'https://www.axisbank.com/retail/cards/credit-card/axis-bank-neo-credit-card'},
+
+// ═══════════ CO-BRANDED CARDS (real savings on specific platforms) ═══════════
+{id:'icici-amazon',nm:'Amazon Pay',bk:'ICICI Bank',fe:0,ic:'📦',nw:'visa',rt:'co',gr:['#4facfe','#00f2fe'],r:{'amazon':0.05,'amazon-fresh':0.05,'amazon-prime':0.05,'amazon-pharmacy':0.05,'amazon-pay-bills':0.02,'swiggy':0.02,'zomato':0.02,'swiggy-instamart':0.02,'bookmyshow':0.02,'blinkit':0.02,'default':0.01},rn:'Amazon Pay balance',u:'https://www.icicibank.com/card/credit-cards/amazon-pay-credit-card'},
+{id:'hdfc-swiggy',nm:'Swiggy',bk:'HDFC Bank',fe:500,ic:'🍔',nw:'visa',rt:'co',gr:['#fa709a','#fee140'],r:{'swiggy':0.10,'swiggy-instamart':0.10,'zomato':0.05,'eatsure':0.05,'faasos':0.05,'default':0.01},rn:'Swiggy Money',wv:'₹2L spend',u:'https://www.hdfcbank.com/personal/pay/cards/credit-cards/swiggy-hdfc-bank-credit-card'},
+{id:'hdfc-tata',nm:'Tata Neu+',bk:'HDFC Bank',fe:0,ic:'🛒',nw:'rupay',rt:'co',gr:['#30cfd0','#330867'],r:{'bigbasket':0.05,'bb-now':0.05,'croma':0.05,'tatacliq':0.05,'tatacliq-tech':0.05,'natures-basket':0.05,'tata-1mg':0.05,'default':0.015},rn:'NeuCoins',u:'https://www.hdfcbank.com/personal/pay/cards/credit-cards/tata-neu-plus-hdfc-bank-credit-card'},
+{id:'axis-flipkart',nm:'Flipkart',bk:'Axis Bank',fe:0,ic:'🛍️',nw:'visa',rt:'co',gr:['#2193b0','#6dd5ed'],r:{'flipkart':0.05,'flipkart-supermart':0.05,'myntra':0.04,'shopsy':0.04,'cleartrip':0.04,'swiggy':0.04,'zomato':0.04,'default':0.015},rn:'Flipkart cashback',u:'https://www.axisbank.com/retail/cards/credit-card/flipkart-axis-bank-credit-card'},
+{id:'sbi-flipkart',nm:'Flipkart SBI',bk:'SBI Card',fe:500,ic:'🛒',nw:'visa',rt:'co',gr:['#2196F3','#F44336'],r:{'flipkart':0.05,'myntra':0.075,'swiggy':0.04,'zomato':0.04,'cultfit':0.04,'flipkart-health':0.05,'default':0.01},rn:'Flipkart credit',wv:'₹3.5L spend',u:'https://www.sbicard.com/en/personal/credit-cards/shopping/flipkart-sbi-card.page'},
+
+// ═══════════ FUEL CO-BRANDED (real savings at pumps) ═══════════
+{id:'bpcl-sbi',nm:'BPCL Octane',bk:'SBI Card',fe:1499,ic:'⛽',nw:'visa',rt:'co',gr:['#e65100','#ffd600'],r:{'bpcl':0.0725,'swiggy':0.02,'zomato':0.02,'default':0.005},rn:'Fuel points',wv:'₹2L spend',fl:{pump:'bpcl',sw:1,swCap:100,swMin:400,swMax:4000,pts:'13X pts/₹100',tip:'Swipe only at BPCL pumps.'},u:'https://www.sbicard.com/en/personal/credit-cards/travel/bpcl-sbi-card.page'},
+{id:'iocl-axis',nm:'IndianOil',bk:'Axis Bank',fe:500,ic:'⛽',nw:'visa',rt:'co',gr:['#1565c0','#42a5f5'],r:{'indian-oil':0.04,'default':0.005},rn:'IOCL XTRAREWARDS',wv:'₹50K spend',fl:{pump:'indian-oil',sw:1,swCap:200,swMin:400,swMax:4000,pts:'4% as EDGE rewards',tip:'Use at IOCL stations only.'},u:'https://www.axisbank.com/retail/cards/credit-card/indian-oil-axis-bank-credit-card'},
+{id:'icici-hpcl',nm:'HPCL Coral',bk:'ICICI Bank',fe:199,ic:'⛽',nw:'visa',rt:'co',gr:['#2e7d32','#81c784'],r:{'hp-petrol':0.04,'default':0.005},rn:'HPCL cashback',wv:'₹1.5L spend',fl:{pump:'hp-petrol',sw:1,swCap:200,swMin:400,swMax:4000,pts:'4% cashback on HPCL',tip:'Use at HPCL pumps.'},u:'https://www.icicibank.com/card/credit-cards/hpcl-icici-bank-coral-credit-card'},
+{id:'iocl-rbl',nm:'IOCL Xtra',bk:'RBL Bank',fe:500,ic:'⛽',nw:'mc',rt:'co',gr:['#d84315','#ff8a65'],r:{'indian-oil':0.075,'default':0.005},rn:'Fuel Points',wv:'₹50K spend',fl:{pump:'indian-oil',sw:1,swCap:150,swMin:500,swMax:4000,pts:'7.5% as Fuel Points',tip:'Best IOCL card.'},u:'https://www.rblbank.com/credit-cards/iocl-rbl-bank-xtra-credit-card'},
+{id:'jiobp-indusind',nm:'Jio-bp Mobility+',bk:'IndusInd Bank',fe:0,ic:'⛽',nw:'visa',rt:'co',gr:['#00695c','#26a69a'],r:{'jio-bp':0.04,'nayara':0.01,'shell':0.01,'default':0.005},rn:'Smiles',fl:{pump:'jio-bp',sw:1,swCap:100,swMin:400,swMax:4000,pts:'12 Smiles/₹100 (4%)',tip:'Zero annual fee.'},u:'https://www.indusind.com/in/en/personal/cards/credit-card/jio-bp-mobility-plus-credit-card.html'},
+
+// ═══════════ REWARD POINT CARDS — CONSERVATIVE VALUES ═══════════
+// Rates below reflect catalog/statement credit value (what you'll realistically get)
+// NOT the inflated "best case travel partner" values
+
+// HDFC Reward Point cards
+{id:'hdfc-millennia',nm:'Millennia',bk:'HDFC Bank',fe:0,ic:'💎',nw:'visa',rt:'cb',gr:['#a8edea','#fed6e3'],r:{'smartbuy':0.025,'smartbuy-flights':0.025,'smartbuy-hotels':0.025,'amazon':0.025,'flipkart':0.025,'myntra':0.025,'swiggy':0.025,'zomato':0.025,'bookmyshow':0.025,'tatacliq':0.025,'default':0.01},rn:'CashBack',u:'https://www.hdfcbank.com/personal/pay/cards/credit-cards/millennia-credit-card'},
+// Millennia gives actual cashback (not reward points) — 1% offline, 2.5% online, capped ₹750/month
+
+{id:'hdfc-infinia',nm:'Infinia',bk:'HDFC Bank',fe:12500,ic:'👑',nw:'visa',rt:'rp',gr:['#ffd89b','#19547b'],r:{'smartbuy':0.033,'smartbuy-flights':0.033,'smartbuy-hotels':0.033,'default':0.033},rn:'Reward Points (₹1/pt via SmartBuy)',wv:'₹10L spend',u:'https://www.hdfcbank.com/personal/pay/cards/credit-cards/infinia-credit-card'},
+// Infinia: 5 RP per ₹150, 1 point = ₹1 on SmartBuy travel = 3.3%. SmartBuy 10X was 16.5% but using conservative 3.3% for all
+
+{id:'hdfc-diners-black',nm:'Diners Black',bk:'HDFC Bank',fe:10000,ic:'♠️',nw:'diners',rt:'rp',gr:['#232526','#414345'],r:{'smartbuy':0.033,'smartbuy-flights':0.033,'smartbuy-hotels':0.033,'default':0.0167},rn:'Reward Points (₹1/pt via SmartBuy)',wv:'₹5L spend',u:'https://www.hdfcbank.com/personal/pay/cards/credit-cards/diners-club-black'},
+// Diners Black: 5 RP per ₹150 = 3.3% on SmartBuy (1:1), 1.67% default (₹0.50/pt catalog)
+
+{id:'hdfc-regalia',nm:'Regalia',bk:'HDFC Bank',fe:2500,ic:'✨',nw:'visa',rt:'rp',gr:['#8E2DE2','#4A00E0'],r:{'smartbuy':0.026,'smartbuy-flights':0.026,'smartbuy-hotels':0.026,'default':0.013},rn:'Reward Points (₹0.50/pt)',wv:'₹3L spend',u:'https://www.hdfcbank.com/personal/pay/cards/credit-cards/regalia-credit-card'},
+// Regalia: 4 RP per ₹150, ₹0.50/pt on catalog = 1.3%. SmartBuy 10X = ~6.5% but conservative 2.6%
+
+{id:'hdfc-regalia-gold',nm:'Regalia Gold',bk:'HDFC Bank',fe:2999,ic:'🌟',nw:'visa',rt:'rp',gr:['#F09819','#EDDE5D'],r:{'smartbuy':0.026,'smartbuy-flights':0.026,'smartbuy-hotels':0.026,'myntra':0.013,'nykaa':0.013,'reliance-digital':0.013,'croma':0.013,'default':0.013},rn:'Reward Points (₹0.50/pt)',wv:'₹4L spend',u:'https://www.hdfcbank.com/personal/pay/cards/credit-cards/regalia-gold-credit-card'},
+
+{id:'hdfc-moneyback',nm:'MoneyBack+',bk:'HDFC Bank',fe:500,ic:'💵',nw:'visa',rt:'rp',gr:['#56ab2f','#a8e063'],r:{'amazon':0.0083,'flipkart':0.0083,'swiggy':0.0083,'bigbasket':0.0083,'bb-now':0.0083,'default':0.00083},rn:'CashPoints (₹0.25/pt)',wv:'₹50K spend',caps:[{platforms:['amazon','flipkart','swiggy','bigbasket'],cap:'₹1000/month',note:'10X CashPoints on partners capped at 1000 CashPoints/month'}],u:'https://www.hdfcbank.com/personal/pay/cards/credit-cards/moneyback-plus-credit-card'},
+// MoneyBack+: 2 CP per ₹150 default = 0.33% at ₹0.25/pt. 10X on partners = 3.3% → conservative 0.83%
+
+{id:'hdfc-freedom',nm:'Freedom',bk:'HDFC Bank',fe:500,ic:'🆓',nw:'visa',rt:'rp',gr:['#36d1dc','#5b86e5'],r:{'swiggy':0.005,'zomato':0.005,'bigbasket':0.005,'default':0.0027},rn:'Reward Points',wv:'₹50K spend',u:'https://www.hdfcbank.com/personal/pay/cards/credit-cards/freedom-credit-card'},
+
+// Axis Reward Point cards
+{id:'axis-magnus',nm:'Magnus',bk:'Axis Bank',fe:12500,ic:'🔥',nw:'visa',rt:'rp',gr:['#ff6b6b','#4ecdc4'],r:{'makemytrip':0.03,'goibibo':0.03,'cleartrip':0.012,'yatra':0.012,'default':0.012},rn:'EDGE Points (₹0.20-0.50/pt)',u:'https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-credit-card'},
+// Magnus: 12 pts per ₹200. ₹0.20/pt catalog = 1.2%. Travel partners ~₹0.50/pt = 3%. Using 1.2% default, 3% on travel
+
+{id:'axis-atlas',nm:'Atlas',bk:'Axis Bank',fe:5000,ic:'🗺️',nw:'visa',rt:'rp',gr:['#1B1464','#6a3093'],r:{'makemytrip':0.02,'cleartrip':0.02,'goibibo':0.02,'yatra':0.02,'default':0.01},rn:'EDGE Miles (₹0.50-1.00/mi)',wv:'₹4L spend',u:'https://www.axisbank.com/retail/cards/credit-card/atlas-credit-card'},
+// Atlas: 2 Edge Miles per ₹200 default = 1%. 10 Miles on Travel Edge = 5% but conservative 2%
+
+{id:'axis-myzone',nm:'MyZone',bk:'Axis Bank',fe:500,ic:'🎬',nw:'visa',rt:'rp',gr:['#ED4264','#FFEDBC'],r:{'bookmyshow':0.01,'pvr-inox':0.01,'swiggy':0.005,'zomato':0.005,'default':0.005},rn:'EDGE Points',wv:'₹50K spend',u:'https://www.axisbank.com/retail/cards/credit-card/my-zone-credit-card'},
+
+// ICICI Reward Point cards
+{id:'icici-platinum',nm:'Platinum',bk:'ICICI Bank',fe:0,ic:'🔘',nw:'visa',rt:'rp',gr:['#bdc3c7','#2c3e50'],r:{'bookmyshow':0.005,'swiggy':0.005,'zomato':0.005,'default':0.005},rn:'Reward Points',u:'https://www.icicibank.com/card/credit-cards/icici-bank-platinum-chip-credit-card'},
+{id:'icici-coral',nm:'Coral',bk:'ICICI Bank',fe:500,ic:'🪸',nw:'visa',rt:'rp',gr:['#ff6b6b','#ee5a24'],r:{'bookmyshow':0.0075,'swiggy':0.005,'zomato':0.005,'cleartrip':0.005,'default':0.005},rn:'Reward Points',wv:'₹1.5L spend',u:'https://www.icicibank.com/card/credit-cards/icici-bank-coral-credit-card'},
+{id:'icici-sapphiro',nm:'Sapphiro',bk:'ICICI Bank',fe:3500,ic:'💎',nw:'visa',rt:'rp',gr:['#ee0979','#ff6a00'],r:{'cleartrip':0.015,'makemytrip':0.01,'default':0.01},rn:'Reward Points (₹0.25/pt)',wv:'₹5L spend',u:'https://www.icicibank.com/card/credit-cards/icici-bank-sapphiro-credit-card'},
+{id:'icici-rubyx',nm:'Rubyx',bk:'ICICI Bank',fe:3000,ic:'💠',nw:'visa',rt:'rp',gr:['#c0392b','#e74c3c'],r:{'bookmyshow':0.01,'cleartrip':0.0075,'makemytrip':0.0075,'default':0.0075},rn:'Reward Points',wv:'₹3L spend',u:'https://www.icicibank.com/card/credit-cards/icici-bank-rubyx-credit-card'},
+
+// SBI Reward Point cards
+{id:'sbi-simplysave',nm:'SimplySAVE',bk:'SBI Card',fe:499,ic:'🏪',nw:'visa',rt:'rp',gr:['#c94b4b','#4b134f'],r:{'swiggy':0.00625,'zomato':0.00625,'bookmyshow':0.00625,'bigbasket':0.00625,'default':0.0025},rn:'Reward Points (₹0.25/pt)',wv:'₹1L spend',u:'https://www.sbicard.com/en/personal/credit-cards/rewards/sbi-card-simplysave.page'},
+// SimplySAVE: 10 RP per ₹100 on dining/grocery, ₹0.25/pt = 2.5% → conservative 0.625%
+
+{id:'sbi-simplyclick',nm:'SimplyCLICK',bk:'SBI Card',fe:499,ic:'🖱️',nw:'visa',rt:'rp',gr:['#f857a6','#ff5858'],r:{'amazon':0.00625,'bookmyshow':0.00625,'cleartrip':0.00625,'netmeds':0.00625,'amazon-pharmacy':0.003125,'default':0.003125},rn:'Reward Points (₹0.25/pt)',wv:'₹1L spend',u:'https://www.sbicard.com/en/personal/credit-cards/shopping/sbi-card-simplyclick.page'},
+
+{id:'sbi-prime',nm:'Prime',bk:'SBI Card',fe:2999,ic:'💼',nw:'visa',rt:'rp',gr:['#1a2980','#26d0ce'],r:{'swiggy':0.009375,'zomato':0.009375,'bigbasket':0.009375,'default':0.003125},rn:'Reward Points',wv:'₹3L spend',u:'https://www.sbicard.com/en/personal/credit-cards/rewards/sbi-card-prime.page'},
+{id:'sbi-elite',nm:'Elite',bk:'SBI Card',fe:4999,ic:'🏆',nw:'visa',rt:'rp',gr:['#141E30','#243B55'],r:{'swiggy':0.00625,'zomato':0.00625,'bigbasket':0.00625,'bookmyshow':0.00625,'cleartrip':0.00625,'default':0.005},rn:'Reward Points',wv:'₹5L spend',u:'https://www.sbicard.com/en/personal/credit-cards/travel-and-shopping/sbi-card-elite.page'},
+
+// Other Reward Point cards
+{id:'kotak-811',nm:'811',bk:'Kotak Mahindra',fe:0,ic:'📱',nw:'visa',rt:'rp',gr:['#e52d27','#b31217'],r:{'amazon':0.005,'flipkart':0.005,'myntra':0.005,'default':0.005},rn:'Reward Points',u:'https://www.kotak.com/en/personal-banking/cards/credit-cards/811-credit-card.html'},
+{id:'kotak-league',nm:'League Platinum',bk:'Kotak Mahindra',fe:500,ic:'🏅',nw:'visa',rt:'rp',gr:['#d31027','#ea384d'],r:{'pvr-inox':0.01,'bookmyshow':0.01,'swiggy':0.0067,'default':0.0067},rn:'Reward Points',wv:'₹1L spend',u:'https://www.kotak.com/en/personal-banking/cards/credit-cards/league-platinum-credit-card.html'},
+{id:'idfc-classic',nm:'FIRST Classic',bk:'IDFC First',fe:0,ic:'🎯',nw:'visa',rt:'rp',gr:['#0052D4','#4364F7'],r:{'amazon':0.003,'flipkart':0.003,'swiggy':0.003,'zomato':0.003,'default':0.0025},rn:'Reward Points',u:'https://www.idfcfirstbank.com/credit-card/first-classic'},
+{id:'idfc-select',nm:'FIRST Select',bk:'IDFC First',fe:999,ic:'⭐',nw:'visa',rt:'rp',gr:['#00B4DB','#0083B0'],r:{'cleartrip':0.0075,'makemytrip':0.0075,'swiggy':0.0075,'zomato':0.0075,'default':0.0075},rn:'Reward Points',wv:'₹2L spend',u:'https://www.idfcfirstbank.com/credit-card/first-select'},
+{id:'au-lit',nm:'LIT',bk:'AU Bank',fe:0,ic:'🎨',nw:'visa',rt:'rp',gr:['#a18cd1','#fbc2eb'],r:{'swiggy':0.0125,'zomato':0.0125,'amazon':0.0125,'flipkart':0.0125,'blinkit':0.0125,'zepto':0.0075,'default':0.0075},rn:'Vibe Reward Points',u:'https://www.aubank.in/credit-card/lit-credit-card'},
+{id:'amex-mrcc',nm:'MRCC',bk:'Amex',fe:4500,ic:'🅰️',nw:'amex',rt:'rp',gr:['#003087','#00175a'],r:{'amazon':0.01,'flipkart':0.01,'swiggy':0.01,'default':0.01},rn:'MR Points',wv:'₹1.5L spend',u:'https://www.americanexpress.com/in/credit-cards/membership-rewards-credit-card/'},
+{id:'sc-smart',nm:'Smart',bk:'Standard Chartered',fe:0,ic:'🔷',nw:'visa',rt:'cb',gr:['#0072AA','#004E7C'],r:{'swiggy':0.05,'zomato':0.05,'bigbasket':0.05,'tata-1mg':0.05,'pharmeasy':0.03,'default':0.01},u:'https://www.sc.com/in/credit-cards/smart/'},
+// SC Smart gives cashback rewards (5% on select, 1% default)
 ];
 // ═══════════ LIVE OFFERS CONFIG ═══════════
 // Replace with your Supabase credentials after setup
@@ -184,7 +223,7 @@ const LT={bg:'linear-gradient(160deg,#f8f6ff 0%,#fff 40%,#f0ecff 70%,#f8f6ff 100
 /* ══════════ ENGINE ══════════ */
 const gR=(c,p)=>c.r[p]||c.r['default']||0;
 const gO=(p,c,a)=>{const n=new Date();let b=null,bv=0;OF.forEach(o=>{if(o.p!==p||o.b!==c.bk||a<o.mn||new Date(o.tl)<n)return;const v=o.t==='₹'?Math.min(o.v,o.mx):Math.min(a*o.v/100,o.mx);if(v>bv){bv=v;b=o;}});return b?{...b,dc:Math.round(bv)}:null;};
-const cCC=(c,p,a)=>{const rt=gR(c,p),rw=Math.round(a*rt),of=gO(p,c,a),oa=of?of.dc:0;return{card:c,pid:p,pf:PL[p],rt,rw,of,oa,tot:rw+oa,eff:a-(rw+oa),owned:c.owned};};
+const cCC=(c,p,a)=>{const rt=gR(c,p),of=gO(p,c,a),oa=of?of.dc:0;const postDiscount=a-oa;const rw=Math.round(postDiscount*rt);return{card:c,pid:p,pf:PL[p],rt,rw,of,oa,tot:rw+oa,eff:a-(rw+oa),owned:c.owned};};
 const cAll=(cid,a,cards)=>{const c=SC.find(x=>x.id===cid);if(!c)return[];const r=[];c.pf.forEach(p=>cards.forEach(cd=>r.push(cCC(cd,p,a))));r.sort((a,b)=>b.tot-a.tot);return r;};
 const bP=cs=>{const s=new Set(),r=[];cs.forEach(c=>{if(!s.has(c.pid)){s.add(c.pid);r.push(c);}});return r;};
 const fm=n=>n>=100000?'₹'+(n/100000)+'L':n>=1000?'₹'+(n/1000)+'k':'₹'+n;
@@ -1075,7 +1114,7 @@ function Res({rtab,sR,exp,sE,saved,doSv,bO,owP,allP,gap,v,c,L,goCards}){
         {allP.filter(x=>!x.owned&&(!bO||x.tot>bO.tot)).slice(0,8).map((x,i)=><ComboCard key={x.pid+x.card.id} x={x} rk={i+1} v={v} up={true} c={c} L={L} exp={exp} sE={sE} bO={bO} idx={i}/>)}</>
       ):(<div style={{textAlign:'center',padding:'30px 0',color:c.t3,fontSize:L.fs.md,animation:'co-fadeUp 0.3s ease'}}>You already own the best cards 🎉</div>)}</>
     )}
-    <div style={{textAlign:'center',fontSize:L.fs.xs,color:c.t3,padding:'20px 0',lineHeight:1.6,opacity:0.6}}>Estimates only · Verify offers with your bank</div>
+    <div style={{textAlign:'center',fontSize:L.fs.xs,color:c.t3,padding:'20px 0',lineHeight:1.6,opacity:0.6}}>Reward point values are estimates based on standard redemption · Bank offers sourced from aggregators · Always verify with your bank before purchase</div>
   </div>);
 }
 
@@ -1150,9 +1189,10 @@ function HeroCard({bO,v,saved,doSv,c,L}){
 
 /* ══════════ MATH BREAK ══════════ */
 function MathBreak({x,v,c,L}){
+  const rtLabel = x.card.rt==='cb'?'Cashback':x.card.rt==='co'?(x.card.rn||'Platform credit'):'Reward pts (est.)';
   const rows=[
     {label:'Purchase amount',val:'₹'+v.toLocaleString(),color:c.t1,bold:false},
-    {label:'Card reward ('+(x.rt*100).toFixed(1)+'% on '+x.pf.n+')',val:'− ₹'+x.rw,color:c.g,bold:false},
+    {label:rtLabel+' ('+(x.rt*100).toFixed(1)+'% on '+x.pf.n+')',val:'~₹'+x.rw,color:c.g,bold:false},
   ];
   if(x.of){
     const d=x.of.t==='%'?x.of.v+'% off, max ₹'+x.of.mx:'Flat ₹'+x.of.v+' off';
@@ -1160,7 +1200,7 @@ function MathBreak({x,v,c,L}){
     const expLabel = dl <= 7 ? ` · ${dl}d left` : '';
     rows.push({label:x.of.d+' ('+d+')'+expLabel,val:'− ₹'+x.oa,color:c.a,bold:false,expiring:dl<=7});
   }
-  rows.push({label:'You pay',val:'₹'+x.eff.toLocaleString(),color:c.t1,bold:true});
+  rows.push({label:'You pay',val:'~₹'+x.eff.toLocaleString(),color:c.t1,bold:true});
 
   return(
     <div style={{marginTop:14,position:'relative',zIndex:1}}>
@@ -1191,6 +1231,18 @@ function MathBreak({x,v,c,L}){
             );
           })}
         </div>
+        {/* Promo code */}
+        {x.of&&x.of.code&&<div style={{padding:'8px 14px',borderTop:'1px solid '+c.b,display:'flex',alignItems:'center',gap:8}}>
+          <span style={{fontSize:L.fs.xs,color:c.t3}}>Promo code:</span>
+          <span style={{padding:'3px 10px',borderRadius:6,background:c.acg,border:'1px dashed '+c.acb,fontSize:L.fs.xs+1,fontWeight:700,color:c.ac,fontFamily:'monospace',letterSpacing:1}}>{x.of.code}</span>
+        </div>}
+        {/* Reward type note */}
+        {x.card.rt==='rp'&&<div style={{padding:'8px 14px',borderTop:'1px solid '+c.b,fontSize:L.fs.xs,color:c.t3,lineHeight:1.4}}>
+          ⚠️ Savings shown as reward points (estimated value). Actual value depends on redemption method.{x.card.rn?' '+x.card.rn+'.':''}
+        </div>}
+        {x.card.rt==='co'&&<div style={{padding:'8px 14px',borderTop:'1px solid '+c.b,fontSize:L.fs.xs,color:c.t3,lineHeight:1.4}}>
+          ℹ️ {x.card.rn?'Savings credited as '+x.card.rn+' — usable on this platform only.':'Savings as platform credit.'}
+        </div>}
         {x.card.fe>0&&<div style={{padding:'8px 14px',borderTop:'1px solid '+c.b,fontSize:L.fs.xs,color:c.t3,lineHeight:1.4}}>ℹ️ Card has ₹{x.card.fe.toLocaleString()} annual fee{x.card.wv?' (waived at '+x.card.wv+')':''}</div>}
         {x.card.caps&&x.card.caps.some(cap=>cap.platforms.includes(x.pid)||cap.platforms.includes('default'))&&(
           <div style={{padding:'8px 14px',borderTop:'1px solid '+c.b,fontSize:L.fs.xs,color:c.a,lineHeight:1.4,display:'flex',alignItems:'flex-start',gap:6}}>
