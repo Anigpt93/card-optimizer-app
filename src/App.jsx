@@ -225,7 +225,22 @@ const gR=(c,p)=>c.r[p]||c.r['default']||0;
 const gO=(p,c,a)=>{const n=new Date();let b=null,bv=0;OF.forEach(o=>{if(o.p!==p||o.b!==c.bk||a<o.mn||new Date(o.tl)<n)return;const v=o.t==='₹'?Math.min(o.v,o.mx):Math.min(a*o.v/100,o.mx);if(v>bv){bv=v;b=o;}});return b?{...b,dc:Math.round(bv)}:null;};
 const cCC=(c,p,a)=>{const rt=gR(c,p),of=gO(p,c,a),oa=of?of.dc:0;const postDiscount=a-oa;const rw=Math.round(postDiscount*rt);return{card:c,pid:p,pf:PL[p],rt,rw,of,oa,tot:rw+oa,eff:a-(rw+oa),owned:c.owned};};
 const cAll=(cid,a,cards)=>{const c=SC.find(x=>x.id===cid);if(!c)return[];const r=[];c.pf.forEach(p=>cards.forEach(cd=>r.push(cCC(cd,p,a))));r.sort((a,b)=>b.tot-a.tot);return r;};
-const bP=cs=>{const s=new Set(),r=[];cs.forEach(c=>{if(!s.has(c.pid)){s.add(c.pid);r.push(c);}});return r;};
+const bP=cs=>{
+  if(cs.length===0)return[];
+  const topPid=cs[0]?.pid;
+  // Keep top 3 cards for the best platform + best card for each other platform
+  const s=new Set(),r=[];
+  let topCount=0;
+  cs.forEach(c=>{
+    if(c.pid===topPid&&topCount<3){topCount++;r.push(c);s.add(c.pid+'-'+c.card.id);}
+    else if(!s.has(c.pid+'-'+c.card.id)){
+      // For other platforms, keep only best card per platform
+      const platKey='plat-'+c.pid;
+      if(!s.has(platKey)){s.add(platKey);s.add(c.pid+'-'+c.card.id);r.push(c);}
+    }
+  });
+  return r;
+};
 const fm=n=>n>=100000?'₹'+(n/100000)+'L':n>=1000?'₹'+(n/1000)+'k':'₹'+n;
 const daysLeft=(tl)=>{const d=Math.ceil((new Date(tl)-new Date())/(864e5));return d;};
 
