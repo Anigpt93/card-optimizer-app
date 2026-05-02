@@ -207,6 +207,7 @@ let OF=[
 {p:'google-pay',b:'Axis Bank',t:'%',v:5,mn:500,mx:200,tl:'2026-11-30',d:'Axis 5% on bills'},{p:'cred',b:'HDFC Bank',t:'%',v:5,mn:1000,mx:200,tl:'2026-11-30',d:'HDFC 5% via CRED'},{p:'cred',b:'ICICI Bank',t:'%',v:5,mn:500,mx:150,tl:'2026-11-30',d:'ICICI 5% via CRED'},{p:'paytm',b:'SBI Card',t:'%',v:5,mn:500,mx:100,tl:'2026-11-30',d:'SBI 5% bills'},{p:'phonepe',b:'HDFC Bank',t:'%',v:5,mn:500,mx:150,tl:'2026-11-30',d:'HDFC 5% bills'},{p:'freecharge',b:'Axis Bank',t:'%',v:10,mn:300,mx:100,tl:'2026-11-30',d:'Axis 10% recharge'},
 {p:'tata-1mg',b:'HDFC Bank',t:'%',v:15,mn:500,mx:200,tl:'2026-11-30',d:'HDFC 15% off 1mg'},{p:'pharmeasy',b:'ICICI Bank',t:'%',v:15,mn:500,mx:200,tl:'2026-11-30',d:'ICICI 15% off PharmEasy'},{p:'netmeds',b:'SBI Card',t:'%',v:10,mn:300,mx:150,tl:'2026-11-30',d:'SBI 10% off Netmeds'},{p:'apollo-247',b:'HDFC Bank',t:'%',v:10,mn:500,mx:150,tl:'2026-11-30',d:'HDFC 10% off Apollo'},{p:'amazon-pharmacy',b:'ICICI Bank',t:'%',v:5,mn:500,mx:200,tl:'2026-11-30',d:'ICICI 5% off'},
 ];
+const HARDCODED_OF = [...OF];
 const DEF=['onecard','axis-neo','icici-amazon','hdfc-swiggy','hdfc-tata','hdfc-millennia'];
 
 /* ══════════ RESPONSIVE ══════════ */
@@ -440,13 +441,17 @@ function useLiveOffers() {
         })).filter(o => o.v > 0);
 
         if (transformed.length > 0 && mounted) {
-          OF = transformed; // Update global offers
-          setStatus({src:'live',ts:new Date(),count:transformed.length,loading:false,err:null});
+          // Merge: live offers take priority, hardcoded fill gaps
+          const liveKeys = new Set(transformed.map(o => o.p + '|' + o.b));
+          const hardcodedFill = HARDCODED_OF.filter(o => !liveKeys.has(o.p + '|' + o.b));
+          OF = [...transformed, ...hardcodedFill];
+          setStatus({src:'live',ts:new Date(),count:OF.length,loading:false,err:null});
         } else if (mounted) {
-          setStatus(s=>({...s,src:'fallback',loading:false}));
+          OF = [...HARDCODED_OF];
+          setStatus(s=>({...s,src:'hardcoded',count:OF.length,loading:false}));
         }
       } catch (err) {
-        if (mounted) setStatus(s=>({...s,src:'fallback',loading:false,err:err.message}));
+        if (mounted) setStatus(s=>({...s,src:'hardcoded',count:OF.length,loading:false,err:err.message}));
       }
     };
 
