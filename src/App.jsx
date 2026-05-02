@@ -168,46 +168,10 @@ const SUPABASE_URL = 'https://hgerzyjbyrzorbxxdhbj.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhnZXJ6eWpieXJ6b3JieHhkaGJqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA5OTY1NjMsImV4cCI6MjA4NjU3MjU2M30.oVqohB35KIsTpbTBmolu_eyE2kSyKx_sINM7i8JZuIs';
 const OFFER_REFRESH_MS = 6 * 60 * 60 * 1000; // 6 hours
 
-// Hardcoded fallback offers (used when Supabase is not configured or offline)
-let OF=[
-{p:'swiggy',b:'HDFC Bank',t:'%',v:10,mn:500,mx:150,tl:'2026-11-30',d:'HDFC 10% off'},{p:'swiggy-instamart',b:'HDFC Bank',t:'%',v:10,mn:600,mx:100,tl:'2026-11-30',d:'HDFC 10% off'},{p:'swiggy',b:'ICICI Bank',t:'₹',v:125,mn:700,mx:125,tl:'2026-11-30',d:'ICICI ₹125 off'},
-{p:'zomato',b:'SBI Card',t:'%',v:15,mn:500,mx:200,tl:'2026-11-30',d:'SBI 15% off'},{p:'zomato',b:'Axis Bank',t:'%',v:10,mn:500,mx:150,tl:'2026-11-30',d:'Axis 10% off'},
-{p:'eatsure',b:'HDFC Bank',t:'%',v:15,mn:300,mx:100,tl:'2026-11-30',d:'HDFC 15% off'},{p:'dominos',b:'ICICI Bank',t:'%',v:10,mn:600,mx:100,tl:'2026-11-30',d:'ICICI 10% off'},
-{p:'box8',b:'HDFC Bank',t:'%',v:15,mn:300,mx:75,tl:'2026-11-30',d:'HDFC 15% off'},
-{p:'amazon',b:'ICICI Bank',t:'%',v:5,mn:2000,mx:500,tl:'2026-11-30',d:'ICICI 5% extra'},{p:'amazon',b:'HDFC Bank',t:'₹',v:250,mn:3000,mx:250,tl:'2026-11-30',d:'HDFC ₹250 off'},
-{p:'amazon-fresh',b:'ICICI Bank',t:'%',v:5,mn:1000,mx:200,tl:'2026-11-30',d:'ICICI 5% off'},
-{p:'flipkart',b:'Axis Bank',t:'%',v:5,mn:2500,mx:500,tl:'2026-11-30',d:'Axis 5% extra'},{p:'flipkart',b:'ICICI Bank',t:'%',v:10,mn:3000,mx:1250,tl:'2026-11-30',d:'ICICI 10% off'},
-{p:'myntra',b:'HDFC Bank',t:'%',v:10,mn:1500,mx:750,tl:'2026-11-30',d:'HDFC 10% off'},{p:'myntra',b:'ICICI Bank',t:'%',v:10,mn:1500,mx:500,tl:'2026-11-30',d:'ICICI 10% off'},
-{p:'ajio',b:'SBI Card',t:'%',v:10,mn:1000,mx:500,tl:'2026-11-30',d:'SBI 10% off'},{p:'ajio',b:'HDFC Bank',t:'%',v:10,mn:1500,mx:600,tl:'2026-11-30',d:'HDFC 10% off'},
-{p:'nykaa',b:'ICICI Bank',t:'%',v:10,mn:500,mx:300,tl:'2026-11-30',d:'ICICI 10% off'},{p:'nykaa',b:'Axis Bank',t:'%',v:10,mn:500,mx:200,tl:'2026-11-30',d:'Axis 10% off'},
-{p:'tatacliq',b:'HDFC Bank',t:'%',v:10,mn:2000,mx:750,tl:'2026-11-30',d:'HDFC 10% off'},
-{p:'meesho',b:'SBI Card',t:'%',v:10,mn:500,mx:100,tl:'2026-11-30',d:'SBI 10% off'},
-{p:'snapdeal',b:'HDFC Bank',t:'%',v:10,mn:500,mx:200,tl:'2026-11-30',d:'HDFC 10% off'},
-{p:'croma',b:'HDFC Bank',t:'%',v:5,mn:5000,mx:2000,tl:'2026-11-30',d:'HDFC 5% off'},{p:'croma',b:'ICICI Bank',t:'%',v:5,mn:5000,mx:1500,tl:'2026-11-30',d:'ICICI 5% off'},
-{p:'reliance-digital',b:'SBI Card',t:'%',v:5,mn:5000,mx:1500,tl:'2026-11-30',d:'SBI 5% off'},{p:'reliance-digital',b:'HDFC Bank',t:'%',v:5,mn:5000,mx:2000,tl:'2026-11-30',d:'HDFC 5% off'},
-{p:'vijay-sales',b:'ICICI Bank',t:'%',v:7,mn:5000,mx:3000,tl:'2026-11-30',d:'ICICI 7% off'},{p:'vijay-sales',b:'HDFC Bank',t:'%',v:5,mn:5000,mx:2500,tl:'2026-11-30',d:'HDFC 5% off'},
-{p:'makemytrip',b:'HDFC Bank',t:'₹',v:500,mn:5000,mx:500,tl:'2026-11-30',d:'HDFC ₹500 off'},{p:'makemytrip',b:'Axis Bank',t:'%',v:10,mn:3000,mx:1500,tl:'2026-11-30',d:'Axis 10% off'},{p:'makemytrip',b:'ICICI Bank',t:'%',v:10,mn:3000,mx:1000,tl:'2026-11-30',d:'ICICI 10% off'},
-{p:'goibibo',b:'ICICI Bank',t:'₹',v:600,mn:5000,mx:600,tl:'2026-11-30',d:'ICICI ₹600 off'},
-{p:'cleartrip',b:'ICICI Bank',t:'%',v:12,mn:2500,mx:1000,tl:'2026-11-30',d:'ICICI 12% off'},{p:'cleartrip',b:'Axis Bank',t:'%',v:10,mn:2000,mx:800,tl:'2026-11-30',d:'Axis 10% off'},
-{p:'easemytrip',b:'SBI Card',t:'%',v:10,mn:3000,mx:1000,tl:'2026-11-30',d:'SBI 10% off'},{p:'easemytrip',b:'HDFC Bank',t:'%',v:8,mn:3000,mx:800,tl:'2026-11-30',d:'HDFC 8% off'},
-{p:'yatra',b:'HDFC Bank',t:'%',v:10,mn:5000,mx:2000,tl:'2026-11-30',d:'HDFC 10% off'},{p:'yatra',b:'ICICI Bank',t:'%',v:8,mn:3000,mx:1000,tl:'2026-11-30',d:'ICICI 8% off'},
-{p:'irctc',b:'SBI Card',t:'%',v:5,mn:500,mx:100,tl:'2026-11-30',d:'SBI 5% off'},
-{p:'oyo',b:'ICICI Bank',t:'%',v:15,mn:1000,mx:500,tl:'2026-11-30',d:'ICICI 15% off'},{p:'oyo',b:'HDFC Bank',t:'%',v:10,mn:1000,mx:400,tl:'2026-11-30',d:'HDFC 10% off'},
-{p:'booking-com',b:'ICICI Bank',t:'%',v:8,mn:5000,mx:2000,tl:'2026-11-30',d:'ICICI 8% off'},
-{p:'agoda',b:'HDFC Bank',t:'%',v:8,mn:3000,mx:1500,tl:'2026-11-30',d:'HDFC 8% off'},
-{p:'bigbasket',b:'HDFC Bank',t:'%',v:5,mn:1000,mx:200,tl:'2026-11-30',d:'HDFC 5% off'},{p:'bigbasket',b:'ICICI Bank',t:'₹',v:100,mn:800,mx:100,tl:'2026-11-30',d:'ICICI ₹100 off'},
-{p:'blinkit',b:'Axis Bank',t:'%',v:10,mn:500,mx:100,tl:'2026-11-30',d:'Axis 10% off'},{p:'blinkit',b:'HDFC Bank',t:'%',v:10,mn:500,mx:100,tl:'2026-11-30',d:'HDFC 10% off'},
-{p:'zepto',b:'HDFC Bank',t:'%',v:10,mn:500,mx:100,tl:'2026-11-30',d:'HDFC 10% off'},{p:'zepto',b:'ICICI Bank',t:'%',v:10,mn:300,mx:75,tl:'2026-11-30',d:'ICICI 10% off'},
-{p:'jiomart',b:'SBI Card',t:'%',v:10,mn:1000,mx:200,tl:'2026-11-30',d:'SBI 10% off'},
-{p:'dmart',b:'HDFC Bank',t:'%',v:5,mn:1500,mx:200,tl:'2026-11-30',d:'HDFC 5% off'},
-{p:'bookmyshow',b:'Axis Bank',t:'₹',v:200,mn:300,mx:200,tl:'2026-11-30',d:'Axis BOGO'},{p:'bookmyshow',b:'HDFC Bank',t:'₹',v:150,mn:300,mx:150,tl:'2026-11-30',d:'HDFC ₹150 off'},{p:'bookmyshow',b:'ICICI Bank',t:'₹',v:100,mn:200,mx:100,tl:'2026-11-30',d:'ICICI ₹100 off'},
-{p:'pvr-inox',b:'HDFC Bank',t:'%',v:15,mn:300,mx:150,tl:'2026-11-30',d:'HDFC 15% off'},{p:'pvr-inox',b:'Axis Bank',t:'%',v:20,mn:200,mx:200,tl:'2026-11-30',d:'Axis 20% off'},
-{p:'netflix',b:'HDFC Bank',t:'%',v:5,mn:500,mx:100,tl:'2026-11-30',d:'HDFC 5% off'},
-{p:'hotstar',b:'ICICI Bank',t:'%',v:10,mn:299,mx:100,tl:'2026-11-30',d:'ICICI 10% off'},
-{p:'google-pay',b:'Axis Bank',t:'%',v:5,mn:500,mx:200,tl:'2026-11-30',d:'Axis 5% on bills'},{p:'cred',b:'HDFC Bank',t:'%',v:5,mn:1000,mx:200,tl:'2026-11-30',d:'HDFC 5% via CRED'},{p:'cred',b:'ICICI Bank',t:'%',v:5,mn:500,mx:150,tl:'2026-11-30',d:'ICICI 5% via CRED'},{p:'paytm',b:'SBI Card',t:'%',v:5,mn:500,mx:100,tl:'2026-11-30',d:'SBI 5% bills'},{p:'phonepe',b:'HDFC Bank',t:'%',v:5,mn:500,mx:150,tl:'2026-11-30',d:'HDFC 5% bills'},{p:'freecharge',b:'Axis Bank',t:'%',v:10,mn:300,mx:100,tl:'2026-11-30',d:'Axis 10% recharge'},
-{p:'tata-1mg',b:'HDFC Bank',t:'%',v:15,mn:500,mx:200,tl:'2026-11-30',d:'HDFC 15% off 1mg'},{p:'pharmeasy',b:'ICICI Bank',t:'%',v:15,mn:500,mx:200,tl:'2026-11-30',d:'ICICI 15% off PharmEasy'},{p:'netmeds',b:'SBI Card',t:'%',v:10,mn:300,mx:150,tl:'2026-11-30',d:'SBI 10% off Netmeds'},{p:'apollo-247',b:'HDFC Bank',t:'%',v:10,mn:500,mx:150,tl:'2026-11-30',d:'HDFC 10% off Apollo'},{p:'amazon-pharmacy',b:'ICICI Bank',t:'%',v:5,mn:500,mx:200,tl:'2026-11-30',d:'ICICI 5% off'},
-];
-const HARDCODED_OF = [...OF];
+// No hardcoded offers — only verified live offers from Supabase
+// Card rewards (permanent rates built into each card) always work without offers
+let OF=[];
+const HARDCODED_OF = [];
 const DEF=['onecard','axis-neo','icici-amazon','hdfc-swiggy','hdfc-tata','hdfc-millennia'];
 
 /* ══════════ RESPONSIVE ══════════ */
@@ -556,7 +520,7 @@ function Opt({c,cards,addH,L,liveStatus,setTab}){
             background:liveStatus?.src==='live'?c.g:liveStatus?.src==='hardcoded'?c.a:c.ac,
             animation:liveStatus?.loading?'co-pulse 1s infinite':'none',
           }}/>
-          {liveStatus?.src==='live'?`${liveStatus.count} live offers`:`${OF.length} offers`}
+          {liveStatus?.src==='live'?`${liveStatus.count} live offers`:OF.length>0?`${OF.length} offers`:'Card rewards only'}
         </div>
       </div>
       <div style={{fontSize:L.fs.h,fontWeight:800,letterSpacing:-2,lineHeight:1.05,marginBottom:8}}>maximize<br/>
