@@ -130,18 +130,20 @@ const AC=[
 {id:'axis-neo',nm:'Neo',bk:'Axis Bank',fe:0,ic:'🆕',nw:'visa',rt:'cb',gr:['#f093fb','#f5576c'],r:{'swiggy':0.05,'zomato':0.05,'bigbasket':0.05,'default':0.01},u:'https://www.axisbank.com/retail/cards/credit-card/axis-bank-neo-credit-card'},
 
 // ═══════════ CO-BRANDED CARDS (real savings on specific platforms) ═══════════
-{id:'icici-amazon',nm:'Amazon Pay',bk:'ICICI Bank',fe:0,ic:'📦',nw:'visa',rt:'co',gr:['#4facfe','#00f2fe'],r:{'amazon':0.05,'amazon-fresh':0.05,'amazon-prime':0.05,'amazon-pharmacy':0.05,'amazon-pay-bills':0.02,'swiggy':0.02,'zomato':0.02,'swiggy-instamart':0.02,'bookmyshow':0.02,'blinkit':0.02,'default':0.01},rn:'Amazon Pay balance',u:'https://www.icicibank.com/card/credit-cards/amazon-pay-credit-card'},
-{id:'hdfc-swiggy',nm:'Swiggy',bk:'HDFC Bank',fe:500,ic:'🍔',nw:'visa',rt:'co',gr:['#fa709a','#fee140'],r:{'swiggy':0.10,'swiggy-instamart':0.10,'zomato':0.05,'eatsure':0.05,'faasos':0.05,'default':0.01},rn:'Swiggy Money',wv:'₹2L spend',u:'https://www.hdfcbank.com/personal/pay/cards/credit-cards/swiggy-hdfc-bank-credit-card'},
-{id:'hdfc-tata',nm:'Tata Neu+',bk:'HDFC Bank',fe:0,ic:'🛒',nw:'rupay',rt:'co',gr:['#30cfd0','#330867'],r:{'bigbasket':0.05,'bb-now':0.05,'croma':0.05,'tatacliq':0.05,'tatacliq-tech':0.05,'natures-basket':0.05,'tata-1mg':0.05,'default':0.015},rn:'NeuCoins',u:'https://www.hdfcbank.com/personal/pay/cards/credit-cards/tata-neu-plus-hdfc-bank-credit-card'},
-{id:'axis-flipkart',nm:'Flipkart',bk:'Axis Bank',fe:0,ic:'🛍️',nw:'visa',rt:'co',gr:['#2193b0','#6dd5ed'],r:{'flipkart':0.05,'flipkart-supermart':0.05,'myntra':0.04,'shopsy':0.04,'cleartrip':0.04,'swiggy':0.04,'zomato':0.04,'default':0.015},rn:'Flipkart cashback',u:'https://www.axisbank.com/retail/cards/credit-card/flipkart-axis-bank-credit-card'},
-{id:'sbi-flipkart',nm:'Flipkart SBI',bk:'SBI Card',fe:500,ic:'🛒',nw:'visa',rt:'co',gr:['#2196F3','#F44336'],r:{'flipkart':0.05,'myntra':0.075,'swiggy':0.04,'zomato':0.04,'cultfit':0.04,'flipkart-health':0.05,'default':0.01},rn:'Flipkart credit',wv:'₹3.5L spend',u:'https://www.sbicard.com/en/personal/credit-cards/shopping/flipkart-sbi-card.page'},
+// home: the primary platform this card is co-branded with
+// Bank-wide offers for OTHER platforms don't apply to co-brand cards
+{id:'icici-amazon',nm:'Amazon Pay ICICI',bk:'ICICI Bank',fe:0,ic:'📦',nw:'visa',rt:'co',home:'amazon',gr:['#4facfe','#00f2fe'],r:{'amazon':0.05,'amazon-fresh':0.05,'amazon-prime':0.05,'amazon-pharmacy':0.05,'makemytrip':0.02,'cleartrip':0.02,'ixigo':0.02,'goibibo':0.02,'yatra':0.02,'swiggy':0.02,'zomato':0.02,'swiggy-instamart':0.02,'bookmyshow':0.02,'blinkit':0.02,'amazon-pay-bills':0.02,'default':0.01},rn:'Amazon Pay balance',note:'5% on Amazon shopping (Prime). Flights on Amazon/MMT give 2% (flights excluded from 5%). 2% on all Amazon Pay partner merchants.',u:'https://www.icicibank.com/card/credit-cards/amazon-pay-credit-card'},
+{id:'hdfc-swiggy',nm:'Swiggy',bk:'HDFC Bank',fe:500,ic:'🍔',nw:'visa',rt:'co',home:'swiggy',gr:['#fa709a','#fee140'],r:{'swiggy':0.10,'swiggy-instamart':0.10,'zomato':0.05,'eatsure':0.05,'faasos':0.05,'default':0.01},rn:'Swiggy Money',wv:'₹2L spend',u:'https://www.hdfcbank.com/personal/pay/cards/credit-cards/swiggy-hdfc-bank-credit-card'},
+{id:'hdfc-tata',nm:'Tata Neu+',bk:'HDFC Bank',fe:0,ic:'🛒',nw:'rupay',rt:'co',home:'bigbasket',gr:['#30cfd0','#330867'],r:{'bigbasket':0.05,'bb-now':0.05,'croma':0.05,'tatacliq':0.05,'tatacliq-tech':0.05,'natures-basket':0.05,'tata-1mg':0.05,'default':0.015},rn:'NeuCoins',u:'https://www.hdfcbank.com/personal/pay/cards/credit-cards/tata-neu-plus-hdfc-bank-credit-card'},
+{id:'axis-flipkart',nm:'Flipkart',bk:'Axis Bank',fe:0,ic:'🛍️',nw:'visa',rt:'co',home:'flipkart',gr:['#2193b0','#6dd5ed'],r:{'flipkart':0.05,'flipkart-supermart':0.05,'myntra':0.04,'shopsy':0.04,'cleartrip':0.04,'swiggy':0.04,'zomato':0.04,'default':0.015},rn:'Flipkart cashback',u:'https://www.axisbank.com/retail/cards/credit-card/flipkart-axis-bank-credit-card'},
+{id:'sbi-flipkart',nm:'Flipkart SBI',bk:'SBI Card',fe:500,ic:'🛒',nw:'visa',rt:'co',home:'flipkart',gr:['#2196F3','#F44336'],r:{'flipkart':0.05,'myntra':0.075,'swiggy':0.04,'zomato':0.04,'cultfit':0.04,'flipkart-health':0.05,'default':0.01},rn:'Flipkart credit',wv:'₹3.5L spend',u:'https://www.sbicard.com/en/personal/credit-cards/shopping/flipkart-sbi-card.page'},
 
 // ═══════════ FUEL CO-BRANDED (real savings at pumps) ═══════════
-{id:'bpcl-sbi',nm:'BPCL Octane',bk:'SBI Card',fe:1499,ic:'⛽',nw:'visa',rt:'co',gr:['#e65100','#ffd600'],r:{'bpcl':0.0725,'swiggy':0.02,'zomato':0.02,'default':0.005},rn:'Fuel points',wv:'₹2L spend',fl:{pump:'bpcl',sw:1,swCap:100,swMin:400,swMax:4000,pts:'13X pts/₹100',tip:'Swipe only at BPCL pumps.'},u:'https://www.sbicard.com/en/personal/credit-cards/travel/bpcl-sbi-card.page'},
-{id:'iocl-axis',nm:'IndianOil',bk:'Axis Bank',fe:500,ic:'⛽',nw:'visa',rt:'co',gr:['#1565c0','#42a5f5'],r:{'indian-oil':0.04,'default':0.005},rn:'IOCL XTRAREWARDS',wv:'₹50K spend',fl:{pump:'indian-oil',sw:1,swCap:200,swMin:400,swMax:4000,pts:'4% as EDGE rewards',tip:'Use at IOCL stations only.'},u:'https://www.axisbank.com/retail/cards/credit-card/indian-oil-axis-bank-credit-card'},
-{id:'icici-hpcl',nm:'HPCL Coral',bk:'ICICI Bank',fe:199,ic:'⛽',nw:'visa',rt:'co',gr:['#2e7d32','#81c784'],r:{'hp-petrol':0.04,'default':0.005},rn:'HPCL cashback',wv:'₹1.5L spend',fl:{pump:'hp-petrol',sw:1,swCap:200,swMin:400,swMax:4000,pts:'4% cashback on HPCL',tip:'Use at HPCL pumps.'},u:'https://www.icicibank.com/card/credit-cards/hpcl-icici-bank-coral-credit-card'},
-{id:'iocl-rbl',nm:'IOCL Xtra',bk:'RBL Bank',fe:500,ic:'⛽',nw:'mc',rt:'co',gr:['#d84315','#ff8a65'],r:{'indian-oil':0.075,'default':0.005},rn:'Fuel Points',wv:'₹50K spend',fl:{pump:'indian-oil',sw:1,swCap:150,swMin:500,swMax:4000,pts:'7.5% as Fuel Points',tip:'Best IOCL card.'},u:'https://www.rblbank.com/credit-cards/iocl-rbl-bank-xtra-credit-card'},
-{id:'jiobp-indusind',nm:'Jio-bp Mobility+',bk:'IndusInd Bank',fe:0,ic:'⛽',nw:'visa',rt:'co',gr:['#00695c','#26a69a'],r:{'jio-bp':0.04,'nayara':0.01,'shell':0.01,'default':0.005},rn:'Smiles',fl:{pump:'jio-bp',sw:1,swCap:100,swMin:400,swMax:4000,pts:'12 Smiles/₹100 (4%)',tip:'Zero annual fee.'},u:'https://www.indusind.com/in/en/personal/cards/credit-card/jio-bp-mobility-plus-credit-card.html'},
+{id:'bpcl-sbi',nm:'BPCL Octane',bk:'SBI Card',fe:1499,ic:'⛽',nw:'visa',rt:'co',home:'bpcl',gr:['#e65100','#ffd600'],r:{'bpcl':0.0725,'swiggy':0.02,'zomato':0.02,'default':0.005},rn:'Fuel points',wv:'₹2L spend',fl:{pump:'bpcl',sw:1,swCap:100,swMin:400,swMax:4000,pts:'13X pts/₹100',tip:'Swipe only at BPCL pumps.'},u:'https://www.sbicard.com/en/personal/credit-cards/travel/bpcl-sbi-card.page'},
+{id:'iocl-axis',nm:'IndianOil',bk:'Axis Bank',fe:500,ic:'⛽',nw:'visa',rt:'co',home:'indian-oil',gr:['#1565c0','#42a5f5'],r:{'indian-oil':0.04,'default':0.005},rn:'IOCL XTRAREWARDS',wv:'₹50K spend',fl:{pump:'indian-oil',sw:1,swCap:200,swMin:400,swMax:4000,pts:'4% as EDGE rewards',tip:'Use at IOCL stations only.'},u:'https://www.axisbank.com/retail/cards/credit-card/indian-oil-axis-bank-credit-card'},
+{id:'icici-hpcl',nm:'HPCL Coral',bk:'ICICI Bank',fe:199,ic:'⛽',nw:'visa',rt:'co',home:'hp-petrol',gr:['#2e7d32','#81c784'],r:{'hp-petrol':0.04,'default':0.005},rn:'HPCL cashback',wv:'₹1.5L spend',fl:{pump:'hp-petrol',sw:1,swCap:200,swMin:400,swMax:4000,pts:'4% cashback on HPCL',tip:'Use at HPCL pumps.'},u:'https://www.icicibank.com/card/credit-cards/hpcl-icici-bank-coral-credit-card'},
+{id:'iocl-rbl',nm:'IOCL Xtra',bk:'RBL Bank',fe:500,ic:'⛽',nw:'mc',rt:'co',home:'indian-oil',gr:['#d84315','#ff8a65'],r:{'indian-oil':0.075,'default':0.005},rn:'Fuel Points',wv:'₹50K spend',fl:{pump:'indian-oil',sw:1,swCap:150,swMin:500,swMax:4000,pts:'7.5% as Fuel Points',tip:'Best IOCL card.'},u:'https://www.rblbank.com/credit-cards/iocl-rbl-bank-xtra-credit-card'},
+{id:'jiobp-indusind',nm:'Jio-bp Mobility+',bk:'IndusInd Bank',fe:0,ic:'⛽',nw:'visa',rt:'co',home:'jio-bp',gr:['#00695c','#26a69a'],r:{'jio-bp':0.04,'nayara':0.01,'shell':0.01,'default':0.005},rn:'Smiles',fl:{pump:'jio-bp',sw:1,swCap:100,swMin:400,swMax:4000,pts:'12 Smiles/₹100 (4%)',tip:'Zero annual fee.'},u:'https://www.indusind.com/in/en/personal/cards/credit-card/jio-bp-mobility-plus-credit-card.html'},
 
 // ═══════════ REWARD POINT CARDS — CONSERVATIVE VALUES ═══════════
 // Rates below reflect catalog/statement credit value (what you'll realistically get)
@@ -222,24 +224,43 @@ const LT={bg:'linear-gradient(160deg,#f8f6ff 0%,#fff 40%,#f0ecff 70%,#f8f6ff 100
 
 /* ══════════ ENGINE ══════════ */
 const gR=(c,p)=>c.r[p]||c.r['default']||0;
-const gO=(p,c,a)=>{const n=new Date();let b=null,bv=0;OF.forEach(o=>{if(o.p!==p||o.b!==c.bk||a<o.mn||new Date(o.tl)<n)return;const v=o.t==='₹'?Math.min(o.v,o.mx):Math.min(a*o.v/100,o.mx);if(v>bv){bv=v;b=o;}});return b?{...b,dc:Math.round(bv)}:null;};
+
+// Co-brand exclusion: if card is co-branded, only apply offers for its home platform
+// e.g. Amazon ICICI should NOT get "ICICI 10% off on MMT" offer
+const offerAppliesToCard=(offer,card)=>{
+  if(offer.b!==card.bk)return false; // bank must match
+  if(card.rt==='co'&&card.home&&offer.p!==card.home)return false; // co-brand exclusion
+  return true;
+};
+
+const gO=(p,c,a)=>{
+  const n=new Date();let b=null,bv=0;
+  OF.forEach(o=>{
+    if(o.p!==p||a<o.mn||new Date(o.tl)<n)return;
+    if(!offerAppliesToCard(o,c))return;
+    const v=o.t==='₹'?Math.min(o.v,o.mx||o.v):Math.min(a*o.v/100,o.mx||a*o.v/100);
+    if(v>bv){bv=v;b=o;}
+  });
+  return b?{...b,dc:Math.round(bv)}:null;
+};
+
 const cCC=(c,p,a)=>{const rt=gR(c,p),of=gO(p,c,a),oa=of?of.dc:0;const postDiscount=a-oa;const rw=Math.round(postDiscount*rt);return{card:c,pid:p,pf:PL[p],rt,rw,of,oa,tot:rw+oa,eff:a-(rw+oa),owned:c.owned};};
 const cAll=(cid,a,cards)=>{const c=SC.find(x=>x.id===cid);if(!c)return[];const r=[];c.pf.forEach(p=>cards.forEach(cd=>r.push(cCC(cd,p,a))));r.sort((a,b)=>b.tot-a.tot);return r;};
+
+// Top 3 deduplication: one result per card, best platform for that card
+// Prevents showing same card across 8 platforms
 const bP=cs=>{
-  if(cs.length===0)return[];
-  const topPid=cs[0]?.pid;
-  // Keep top 3 cards for the best platform + best card for each other platform
-  const s=new Set(),r=[];
-  let topCount=0;
-  cs.forEach(c=>{
-    if(c.pid===topPid&&topCount<3){topCount++;r.push(c);s.add(c.pid+'-'+c.card.id);}
-    else if(!s.has(c.pid+'-'+c.card.id)){
-      // For other platforms, keep only best card per platform
-      const platKey='plat-'+c.pid;
-      if(!s.has(platKey)){s.add(platKey);s.add(c.pid+'-'+c.card.id);r.push(c);}
+  if(!cs.length)return[];
+  // Group by card, keep best platform per card
+  const cardMap=new Map();
+  cs.forEach(combo=>{
+    const cid=combo.card.id;
+    if(!cardMap.has(cid)||combo.tot>cardMap.get(cid).tot){
+      cardMap.set(cid,combo);
     }
   });
-  return r;
+  // Sort by total savings, return top 3
+  return Array.from(cardMap.values()).sort((a,b)=>b.tot-a.tot).slice(0,3);
 };
 const fm=n=>n>=100000?'₹'+(n/100000)+'L':n>=1000?'₹'+(n/1000)+'k':'₹'+n;
 const daysLeft=(tl)=>{const d=Math.ceil((new Date(tl)-new Date())/(864e5));return d;};
@@ -542,9 +563,14 @@ function Opt({c,cards,addH,L,liveStatus,setTab}){
   const ams=cat?cat.am:[1000,5000,10000,50000];
   const v=parseInt(amt)||0;
   const combos=useMemo(()=>v>0&&catId?cAll(catId,v,cards):[],[catId,v,cards]);
-  const ow=combos.filter(x=>x.owned),bO=ow[0]||null,bA=combos[0]||null;
+  const ow=combos.filter(x=>x.owned);
+  const owP=bP(ow); // top 3 owned cards (one result per card, best platform)
+  const bO=owP[0]||null; // best owned card
+  // For upgrades: best card per card among non-owned, top 3, only if beats bO
+  const nonOwned=combos.filter(x=>!x.owned);
+  const allP=bP(nonOwned).filter(x=>!bO||x.tot>bO.tot);
+  const bA=combos[0]||null;
   const gap=bO&&bA&&!bA.owned?bA.tot-bO.tot:0;
-  const owP=bP(ow),allP=bP(combos);
   const hasRes=combos.length>0&&v>0;
   const pCat=id=>{sC(id);sA('');sP(null);sR('owned');sE(null);sS(null);};
   const doSv=cb=>{addH(cb,v,catId);sS(cb.pid);setTimeout(()=>sS(null),2500);};
